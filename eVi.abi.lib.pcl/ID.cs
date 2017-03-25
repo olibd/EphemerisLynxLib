@@ -33,9 +33,6 @@ namespace eVi.abi.lib.pcl
         public Function GetFunctionKill() {
             return contract.GetFunction("kill");
         }
-        public Function GetFunctionAddCertificate() {
-            return contract.GetFunction("addCertificate");
-        }
         public Function GetFunctionOwner() {
             return contract.GetFunction("owner");
         }
