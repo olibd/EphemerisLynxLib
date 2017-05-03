@@ -8,6 +8,7 @@ namespace eVi.PCL.Unit_Tests
         [Test()]
         public void TestCase()
         {
+            Assert.Fail();
         }
     }
 }
