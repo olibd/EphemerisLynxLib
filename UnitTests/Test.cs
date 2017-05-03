@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 using System;
-namespace eVi.PCL.Unit_Tests
+namespace UnitTests
 {
     [TestFixture()]
     public class Test

@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5CB7822A-37EF-4C8D-91E2-9A4E66AF78AC}</ProjectGuid>
+    <ProjectGuid>{7080DC3F-4CAD-4A6F-AD2F-20B100511E73}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>eVi.PCL.Unit_Tests</RootNamespace>
-    <AssemblyName>eVi.PCL.Unit_Tests</AssemblyName>
+    <RootNamespace>UnitTests</RootNamespace>
+    <AssemblyName>UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
