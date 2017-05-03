@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eVi.abi.lib.pcl", "eVi.abi.lib.pcl\eVi.abi.lib.pcl.csproj", "{D53272C3-3EC1-41CC-871D-A435B146678D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eVi.PCL.Unit_Tests", "eVi.PCL.Unit_Tests\eVi.PCL.Unit_Tests.csproj", "{5CB7822A-37EF-4C8D-91E2-9A4E66AF78AC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "eVi.PCL.Unit_Tests\UnitTests.csproj", "{5CB7822A-37EF-4C8D-91E2-9A4E66AF78AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
