@@ -13,6 +13,13 @@ namespace eVi.abi.lib.pcl
 
         public static string ABI = @"[{'constant':false,'inputs':[{'name':'_h','type':'bytes32'}],'name':'confirm','outputs':[{'name':'','type':'bool'}],'payable':false,'type':'function'},{'constant':false,'inputs':[{'name':'_from','type':'address'},{'name':'_to','type':'address'}],'name':'changeMultisigOwner','outputs':[],'payable':false,'type':'function'},{'constant':false,'inputs':[{'name':'_to','type':'address'},{'name':'_value','type':'uint256'},{'name':'_data','type':'bytes'}],'name':'propose','outputs':[{'name':'','type':'bytes32'}],'payable':false,'type':'function'},{'anonymous':false,'inputs':[{'indexed':false,'name':'owner','type':'address'},{'indexed':false,'name':'value','type':'uint256'},{'indexed':false,'name':'to','type':'address'},{'indexed':false,'name':'data','type':'bytes'}],'name':'SingleTransact','type':'event'},{'anonymous':false,'inputs':[{'indexed':false,'name':'owner','type':'address'},{'indexed':false,'name':'operation','type':'bytes32'},{'indexed':false,'name':'value','type':'uint256'},{'indexed':false,'name':'to','type':'address'},{'indexed':false,'name':'data','type':'bytes'}],'name':'MultiTransact','type':'event'},{'anonymous':false,'inputs':[{'indexed':false,'name':'operation','type':'bytes32'},{'indexed':false,'name':'initiator','type':'address'},{'indexed':false,'name':'value','type':'uint256'},{'indexed':false,'name':'to','type':'address'},{'indexed':false,'name':'data','type':'bytes'}],'name':'ConfirmationNeeded','type':'event'}]";
 
+        public static string BYTE_CODE = "0x";
+
+        public static Task<string> DeployContractAsync(Web3 web3, string addressFrom,  HexBigInteger gas = null, HexBigInteger valueAmount = null)
+        {
+            return web3.Eth.DeployContract.SendRequestAsync(ABI, BYTE_CODE, addressFrom, gas, valueAmount );
+        }
+
         private Contract contract;
 
         public IMultisigService(Web3 web3, string address)
