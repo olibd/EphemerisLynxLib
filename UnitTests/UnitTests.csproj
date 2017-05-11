@@ -26,9 +26,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="nunit.framework">
-      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Win32.Primitives">
       <HintPath>..\packages\Microsoft.Win32.Primitives.4.0.1\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
     </Reference>
@@ -102,12 +99,21 @@
     <Reference Include="Nethereum.TestRPCRunner.Net45">
       <HintPath>..\packages\Nethereum.TestRPCRunner.Net45.1.0.0\lib\net45\Nethereum.TestRPCRunner.Net45.dll</HintPath>
     </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.3.6.1\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FactoryTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\eVi.abi.lib.pcl\eVi.abi.lib.pcl.csproj">
+      <Project>{D53272C3-3EC1-41CC-871D-A435B146678D}</Project>
+      <Name>eVi.abi.lib.pcl</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
