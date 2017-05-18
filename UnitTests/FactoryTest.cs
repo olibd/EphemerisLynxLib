@@ -1,4 +1,4 @@
-﻿using NUnit.Framework;
+﻿﻿using NUnit.Framework;
 using System;
 using Nethereum;
 using Nethereum.Web3;
@@ -56,7 +56,7 @@ namespace UnitTests
 
             Event idCreationEvent = factory.GetEventReturnIDController();
 
-            HexBigInteger filterAddressFrom = await idCreationEvent.CreateFilterAsync();
+            HexBigInteger filterAddressFrom = await idCreationEvent.CreateFilterAsync(addressFrom);
 
             string transactionHash = await factory.CreateIDAsync(addressFrom, new HexBigInteger(3905820));
             string transactionHash2 = await factory.CreateIDAsync(addressFrom, new HexBigInteger(3905820));
