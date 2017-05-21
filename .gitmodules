@@ -1,0 +1,3 @@
+[submodule "eVi_contracts"]
+	path = eVi_contracts
+	url = https://ephemeris.visualstudio.com/Ephemeris%20ID/_git/eVi_contracts

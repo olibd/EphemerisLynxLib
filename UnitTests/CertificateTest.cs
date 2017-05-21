@@ -21,6 +21,9 @@ namespace UnitTests
         string addressFrom;
         string addressFromNotOwner;
 
+        //NOTE: In order for these tests to pass when using Parity, it is necessary to create a second account and give that account some ether. Otherwise, addressFromNotOwner will be null, or the transaction will run out of gas.
+        //TestRPC should pass out of the box as it creates more than one account with ether.
+
         [SetUp]
         public async Task Setup()
         {
@@ -38,6 +41,7 @@ namespace UnitTests
 
             //get first account
             addressFrom = (await web3.Eth.Accounts.SendRequestAsync())[0];
+            //get second account
             addressFromNotOwner = (await web3.Eth.Accounts.SendRequestAsync())[1];
 
             //Deploy attribute
@@ -61,6 +65,7 @@ namespace UnitTests
         {
             launcher.StopTestRPC();
         }
+
 
         [Test()]
         public async Task TestRevoke()
