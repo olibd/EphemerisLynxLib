@@ -37,7 +37,7 @@ namespace UnitTests
             string transactionHash = null;
             try
             {
-                transactionHash = await _attribute.AddCertificateAsync(addressFrom, _certificateNotOwnedByAttribute.GetAddress(), new HexBigInteger(3905820));
+                transactionHash = await _attribute.AddCertificateAsync(AddressFrom, _certificateNotOwnedByAttribute.GetAddress(), new HexBigInteger(3905820));
             }
             catch (RpcResponseException e)
             { }
@@ -52,7 +52,7 @@ namespace UnitTests
 
             try
             {
-                transactionHash = await _attribute.AddCertificateAsync(addressFrom, _attributeOwnedCertificate.GetAddress(), new HexBigInteger(3905820));
+                transactionHash = await _attribute.AddCertificateAsync(AddressFrom, _attributeOwnedCertificate.GetAddress(), new HexBigInteger(3905820));
             }
             catch (RpcResponseException e)
             {
@@ -60,23 +60,23 @@ namespace UnitTests
             }
 
             Assert.NotNull(transactionHash);
-            string callResult = await _attribute.GetCertificateAsyncCall(addressFrom);
+            string callResult = await _attribute.GetCertificateAsyncCall(AddressFrom);
             Assert.AreEqual(callResult, _attributeOwnedCertificate.GetAddress());
         }
 
         private async Task DeployAttributeAsync(string location, string hash)
         {
-            string owner = addressFrom;
+            string owner = AddressFrom;
             string transactionHash = await
                 AttributeService.DeployContractAsync(
-                    web3, addressFrom, location, hash, owner,
+                    Web3, AddressFrom, location, hash, owner,
                     new HexBigInteger(3905820));
 
             TransactionReceipt receipt = await
-                web3.Eth.Transactions.GetTransactionReceipt.
+                Web3.Eth.Transactions.GetTransactionReceipt.
                     SendRequestAsync(transactionHash);
 
-            _attribute = new AttributeService(web3, receipt.ContractAddress);
+            _attribute = new AttributeService(Web3, receipt.ContractAddress);
         }
 
         private async Task DeployCertificatesAsync(string location, string hash)
@@ -87,32 +87,32 @@ namespace UnitTests
 
         private async Task DeployAttributeOwnedCertificateAsync(string location, string hash)
         {
-            string owner = addressFrom;
+            string owner = AddressFrom;
             string transactionHash = await
                 CertificateService.DeployContractAsync(
-                    web3, addressFrom, location, hash, _attribute.GetAddress(),
+                    Web3, AddressFrom, location, hash, _attribute.GetAddress(),
                     new HexBigInteger(3905820));
 
             TransactionReceipt receipt = await
-                web3.Eth.Transactions.GetTransactionReceipt.
+                Web3.Eth.Transactions.GetTransactionReceipt.
                     SendRequestAsync(transactionHash);
 
-            _attributeOwnedCertificate = new CertificateService(web3, receipt.ContractAddress);
+            _attributeOwnedCertificate = new CertificateService(Web3, receipt.ContractAddress);
         }
 
         private async Task DeployNotOwnedCertificateAsync(string location, string hash)
         {
-            string owner = addressFrom;
+            string owner = AddressFrom;
             string transactionHash = await
                 CertificateService.DeployContractAsync(
-                    web3, addressFrom, location, hash, owner,
+                    Web3, AddressFrom, location, hash, owner,
                     new HexBigInteger(3905820));
 
             TransactionReceipt receipt = await
-                web3.Eth.Transactions.GetTransactionReceipt.
+                Web3.Eth.Transactions.GetTransactionReceipt.
                     SendRequestAsync(transactionHash);
 
-            _certificateNotOwnedByAttribute = new CertificateService(web3, receipt.ContractAddress);
+            _certificateNotOwnedByAttribute = new CertificateService(Web3, receipt.ContractAddress);
         }
 
     }
