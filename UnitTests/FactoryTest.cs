@@ -7,38 +7,24 @@ using System.Threading.Tasks;
 using eVi.abi.lib.pcl;
 using Nethereum.RPC.Eth.DTOs;
 using Nethereum.Hex.HexTypes;
-using System.Threading;
 
 namespace UnitTests
 {
     [TestFixture()]
-    public class FactoryTest
+    public class FactoryTest : AutonomousTest
     {
-        Web3 web3;
-        TestRPCEmbeddedRunner launcher;
         FactoryService factory;
-        string addressFrom;
 
         [SetUp]
-        public async Task Setup()
+        public async Task SetupAsync()
         {
-            //We configure embeded test rpc instance
-            launcher = new TestRPCEmbeddedRunner();
-            launcher.RedirectOuputToDebugWindow = true;
-            launcher.Arguments = "--port 8545";
-            //We configure embeded test rpc instance
-            launcher.StartTestRPC();
+            await InitAutonomousTestAsync();
 
-            web3 = new Web3();
-
-            //Give time for the process start
-            Thread.Sleep(2000);
-
-            //get first account
-            addressFrom = (await web3.Eth.Accounts.SendRequestAsync())[0];
-
-            string transactionHash = await FactoryService.DeployContractAsync(web3, addressFrom, new HexBigInteger(3905820));
-            TransactionReceipt receipt = await web3.Eth.Transactions.GetTransactionReceipt.SendRequestAsync(transactionHash);
+            string transactionHash = await FactoryService.DeployContractAsync(
+                web3, addressFrom, new HexBigInteger(3905820));
+            TransactionReceipt receipt = await 
+                web3.Eth.Transactions.GetTransactionReceipt.
+                    SendRequestAsync(transactionHash);
 
             factory = new FactoryService(web3, receipt.ContractAddress);
 
@@ -47,7 +33,7 @@ namespace UnitTests
         [TearDown]
         public void TearDown()
         {
-            launcher.StopTestRPC();
+            StopAutonomousTest();
         }
 
         [Test()]
