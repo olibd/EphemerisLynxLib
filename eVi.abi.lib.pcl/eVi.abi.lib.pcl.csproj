@@ -29,19 +29,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Attribute.cs" />
-    <Compile Include="Certificate.cs" />
-    <Compile Include="Factory.cs" />
-    <Compile Include="ID.cs" />
-    <Compile Include="IDController.cs" />
-    <Compile Include="IMultisig.cs" />
-    <Compile Include="mortal.cs" />
-    <Compile Include="MultiOwned.cs" />
-    <Compile Include="Owned.cs" />
-    <Compile Include="Watchdog.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <Compile Include="AttributeService.cs" />
+    <Compile Include="CertificateService.cs" />
+    <Compile Include="FactoryService.cs" />
+    <Compile Include="IDControllerService.cs" />
+    <Compile Include="IDService.cs" />
+    <Compile Include="IMultisigService.cs" />
+    <Compile Include="MortalService.cs" />
+    <Compile Include="MultiOwnedService.cs" />
+    <Compile Include="OwnedService.cs" />
+    <Compile Include="WatchdogService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation">

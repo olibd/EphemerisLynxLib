@@ -102,6 +102,9 @@
     <Reference Include="System.Diagnostics.Process">
       <HintPath>..\packages\System.Diagnostics.Process.4.3.0\lib\net461\System.Diagnostics.Process.dll</HintPath>
     </Reference>
+    <Reference Include="Nethereum.TestRPCRunner.Net45">
+      <HintPath>..\packages\Nethereum.TestRPCRunner.Net45.1.0.0\lib\net45\Nethereum.TestRPCRunner.Net45.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FactoryTest.cs" />
@@ -113,10 +116,6 @@
     <ProjectReference Include="..\eVi.abi.lib.pcl\eVi.abi.lib.pcl.csproj">
       <Project>{D53272C3-3EC1-41CC-871D-A435B146678D}</Project>
       <Name>eVi.abi.lib.pcl</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Nethereum.TestRPCRunner\Nethereum.TestRPCRunner.Net45\Nethereum.TestRPCRunner.Net45.csproj">
-      <Project>{E9B96898-C4D6-4CBE-B845-7B00AC349234}</Project>
-      <Name>Nethereum.TestRPCRunner.Net45</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

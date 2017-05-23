@@ -22,6 +22,11 @@ namespace eVi.abi.lib.pcl
 
         private Contract contract;
 
+        public string GetAddress()
+        {
+            return contract.Address;
+        }
+
         public IMultisigService(Web3 web3, string address)
         {
             this.web3 = web3;
@@ -131,4 +136,3 @@ namespace eVi.abi.lib.pcl
 
 
 }
-

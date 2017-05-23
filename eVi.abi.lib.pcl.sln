@@ -5,10 +5,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eVi.abi.lib.pcl", "eVi.abi.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{7080DC3F-4CAD-4A6F-AD2F-20B100511E73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nethereum.TestRPCRunner.Net45", "..\Nethereum.TestRPCRunner\Nethereum.TestRPCRunner.Net45\Nethereum.TestRPCRunner.Net45.csproj", "{E9B96898-C4D6-4CBE-B845-7B00AC349234}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "console", "console\console.csproj", "{372C7C4D-3EB0-49A6-AC95-2E94C4F81E32}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,17 +24,5 @@ Global
 		{7080DC3F-4CAD-4A6F-AD2F-20B100511E73}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7080DC3F-4CAD-4A6F-AD2F-20B100511E73}.Default|Any CPU.ActiveCfg = Debug|Any CPU
 		{7080DC3F-4CAD-4A6F-AD2F-20B100511E73}.Default|Any CPU.Build.0 = Debug|Any CPU
-		{E9B96898-C4D6-4CBE-B845-7B00AC349234}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E9B96898-C4D6-4CBE-B845-7B00AC349234}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E9B96898-C4D6-4CBE-B845-7B00AC349234}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E9B96898-C4D6-4CBE-B845-7B00AC349234}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E9B96898-C4D6-4CBE-B845-7B00AC349234}.Default|Any CPU.ActiveCfg = Debug|Any CPU
-		{E9B96898-C4D6-4CBE-B845-7B00AC349234}.Default|Any CPU.Build.0 = Debug|Any CPU
-		{372C7C4D-3EB0-49A6-AC95-2E94C4F81E32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{372C7C4D-3EB0-49A6-AC95-2E94C4F81E32}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{372C7C4D-3EB0-49A6-AC95-2E94C4F81E32}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{372C7C4D-3EB0-49A6-AC95-2E94C4F81E32}.Release|Any CPU.Build.0 = Release|Any CPU
-		{372C7C4D-3EB0-49A6-AC95-2E94C4F81E32}.Default|Any CPU.ActiveCfg = Debug|Any CPU
-		{372C7C4D-3EB0-49A6-AC95-2E94C4F81E32}.Default|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal
