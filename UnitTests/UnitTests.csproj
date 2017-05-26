@@ -111,6 +111,7 @@
     <Compile Include="AttributeTest.cs" />
     <Compile Include="AutonomousTest.cs" />
     <Compile Include="IDTest.cs" />
+    <Compile Include="IDControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
