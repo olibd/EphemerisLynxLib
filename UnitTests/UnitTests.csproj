@@ -110,6 +110,7 @@
     <Compile Include="FactoryTest.cs" />
     <Compile Include="AttributeTest.cs" />
     <Compile Include="AutonomousTest.cs" />
+    <Compile Include="IDTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
