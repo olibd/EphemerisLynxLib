@@ -40,6 +40,8 @@ namespace UnitTests
         public void StopAutonomousTest()
         {
             Launcher.StopTestRPC();
+            //Give time for the process to stop
+            Thread.Sleep(2000);
         }
     }
 }
