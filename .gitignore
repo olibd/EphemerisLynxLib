@@ -38,3 +38,8 @@ Thumbs.db
 
 # dotCover
 *.dotCover
+.idea/.idea.eVi.abi.lib.pcl/riderModule.iml
+.idea/.idea.eVi.abi.lib.pcl/.idea/contentModel.xml
+.idea/.idea.eVi.abi.lib.pcl/.idea/modules.xml
+.idea/.idea.eVi.abi.lib.pcl/.idea/vcs.xml
+.idea/.idea.eVi.abi.lib.pcl/.idea/workspace.xml
