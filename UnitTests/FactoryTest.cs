@@ -27,7 +27,6 @@ namespace UnitTests
                     SendRequestAsync(transactionHash);
 
             _factory = new FactoryService(Web3, receipt.ContractAddress);
-
         }
 
         [TearDown]
@@ -40,7 +39,6 @@ namespace UnitTests
         [Ignore("Currently skipping due to a bug in TestRPC causing test failre. The test itself is valid and passes with Parity")]
         public async Task TestCreateIDAsync()
         {
-
             Event idCreationEvent = _factory.GetEventReturnIDController();
 
             HexBigInteger filterAddressFrom = await idCreationEvent.CreateFilterAsync(AddressFrom);
