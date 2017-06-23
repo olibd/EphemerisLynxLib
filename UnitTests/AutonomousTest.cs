@@ -8,6 +8,7 @@ namespace UnitTests
     public abstract class AutonomousTest
     {
         public string AddressFrom { get; set; }
+        public string AddressFrom2 { get; set; }
         public Web3 Web3 { get; set; }
         public TestRPCEmbeddedRunner Launcher { get; set; }
 
@@ -33,13 +34,16 @@ namespace UnitTests
             //Give time for the process start
             Thread.Sleep(2000);
 
-            //get first account
+            //get first and second account
             AddressFrom = (await Web3.Eth.Accounts.SendRequestAsync())[0];
+            AddressFrom2 = (await Web3.Eth.Accounts.SendRequestAsync())[1];
         }
 
         public void StopAutonomousTest()
         {
             Launcher.StopTestRPC();
+            //Give time for the process to stop
+            Thread.Sleep(2000);
         }
     }
 }
