@@ -126,6 +126,7 @@ namespace UnitTests
 
             //Change the owner of the ID to make the ID controller the owner
             transactionHash = await ID.ChangeOwnerAsync(AddressFrom, IDController.GetAddress(), new HexBigInteger(3905820));
+            Assert.NotNull(transactionHash);
         }
 
         protected async Task DeployWatchdogsAsync()

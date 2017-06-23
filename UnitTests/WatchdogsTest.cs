@@ -37,6 +37,7 @@ namespace UnitTests
         public async Task TestProposeAndGetMigration()
         {
             string transactionHash = await Watchdogs.ProposeMigrationAsync(AddressFrom, IDController.GetAddress(), AddressFrom2, new HexBigInteger(3905820));
+            Assert.NotNull(transactionHash);
             GetProposalDTO proposal = await Watchdogs.GetProposalAsyncCall();
             //test for call destination
             Assert.AreEqual(IDController.GetAddress(), proposal.A);
@@ -52,6 +53,7 @@ namespace UnitTests
         public async Task TestProposeAndGetDeletion()
         {
             string transactionHash = await Watchdogs.ProposeDeletionAsync(AddressFrom, IDController.GetAddress(), new HexBigInteger(3905820));
+            Assert.NotNull(transactionHash);
             GetProposalDTO proposal = await Watchdogs.GetProposalAsyncCall();
             //test for call destination
             Assert.AreEqual(IDController.GetAddress(), proposal.A);
@@ -96,6 +98,8 @@ namespace UnitTests
             string transactionHash = await IDService.DeployContractAsync(
                 Web3, AddressFrom, new HexBigInteger(3905820));
 
+            Assert.NotNull(transactionHash);
+
             TransactionReceipt receipt = await
                 Web3.Eth.Transactions.GetTransactionReceipt.
                     SendRequestAsync(transactionHash);
@@ -108,6 +112,9 @@ namespace UnitTests
             string transactionHash = await WatchdogService.DeployContractAsync(
                 Web3, AddressFrom, new string[] { AddressFrom, AddressFrom2 },
                 new BigInteger(2), new HexBigInteger(3905820));
+
+            Assert.NotNull(transactionHash);
+
             TransactionReceipt receipt = await
                 Web3.Eth.Transactions.GetTransactionReceipt.
                     SendRequestAsync(transactionHash);
@@ -115,12 +122,16 @@ namespace UnitTests
             Watchdogs = new WatchdogService(Web3, receipt.ContractAddress);
 
             transactionHash = await IDController.SetWatchDogsAsync(AddressFrom, Watchdogs.GetAddress(), new HexBigInteger(3905820));
+
+            Assert.NotNull(transactionHash);
         }
 
         protected async Task DeployIDControllerAsync()
         {
             string transactionHash = await IDControllerService.DeployContractAsync(
                 Web3, AddressFrom, ID.GetAddress(), new HexBigInteger(3905820));
+
+            Assert.NotNull(transactionHash);
 
             TransactionReceipt receipt = await
                 Web3.Eth.Transactions.GetTransactionReceipt.
@@ -130,6 +141,8 @@ namespace UnitTests
 
             //Change the owner of the ID to make the ID controller the owner
             transactionHash = await ID.ChangeOwnerAsync(AddressFrom, IDController.GetAddress(), new HexBigInteger(3905820));
+
+            Assert.NotNull(transactionHash);
         }
     }
 }
