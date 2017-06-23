@@ -66,20 +66,6 @@ namespace UnitTests
         }
 
         [Test]
-        public async Task TestProposeDeletion()
-        {
-            string transactionHash = await Watchdogs.ProposeDeletionAsync(AddressFrom, IDController.GetAddress(), new HexBigInteger(3905820));
-            GetProposalDTO proposal = await Watchdogs.GetProposalAsyncCall();
-            //test for call destination
-            Assert.AreEqual(IDController.GetAddress(), proposal.A);
-            //test for the new proposed owner
-            Assert.AreEqual("0x0000000000000000000000000000000000000000", proposal.B);
-            //test for the initiator of the proposal
-            Assert.AreEqual(AddressFrom, proposal.C);
-            //TODO: test for proposal hash by parsing the event
-        }
-
-        [Test]
         [Ignore("Unimplemented due to inability to access event with testRPC, this is a TODO")]
         public async Task TestConfirm()
         {
