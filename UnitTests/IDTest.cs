@@ -165,7 +165,6 @@ namespace UnitTests
 
         private async Task DeployAttributeOwnedCertificateAsync(string location, string hash)
         {
-            string owner = AddressFrom;
             string transactionHash = await
                 CertificateService.DeployContractAsync(
                     Web3, AddressFrom, location, hash, OwnedAttribute.GetAddress(),
