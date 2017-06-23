@@ -91,7 +91,9 @@ namespace UnitTests
             byte[] key = Byte32Encoder.Encode("key");
             string transactionHash = await ID.AddCertificateAsync(AddressFrom, key, _attributeOwnedCertificate.GetAddress(), new HexBigInteger(3905820));
             Assert.NotNull(transactionHash);
-            string certificateAddress = await ID.GetCertificateAsyncCall(key, AddressFrom);
+            string attributeAddress = await ID.GetAttributeAsyncCall(key);
+            string certificateAddress =
+                await new AttributeService(Web3, attributeAddress).GetCertificateAsyncCall(AddressFrom);
             Assert.AreEqual(_attributeOwnedCertificate.GetAddress(), certificateAddress);
         }
 

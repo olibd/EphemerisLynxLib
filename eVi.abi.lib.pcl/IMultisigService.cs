@@ -17,7 +17,7 @@ namespace eVi.abi.lib.pcl
 
         public static Task<string> DeployContractAsync(Web3 web3, string addressFrom,  HexBigInteger gas = null, HexBigInteger valueAmount = null)
         {
-            return web3.Eth.DeployContract.SendRequestAsync(ABI, BYTE_CODE, addressFrom, gas, valueAmount );
+            return web3.Eth.DeployContract.SendRequestAsync(BYTE_CODE, addressFrom, gas, valueAmount );
         }
 
         private Contract contract;
@@ -136,3 +136,4 @@ namespace eVi.abi.lib.pcl
 
 
 }
+
