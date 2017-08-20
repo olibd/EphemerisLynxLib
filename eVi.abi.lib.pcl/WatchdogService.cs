@@ -19,7 +19,7 @@ namespace eVi.abi.lib.pcl
         {
             string data = web3.Eth.DeployContract.GetData(BYTE_CODE, ABI , _owners, _required);
             TransactionService transactionService = new TransactionService(keyFrom, web3);
-            return await transactionService.SignAndSendTransaction(data, "", gasPrice, gas);
+            return await transactionService.SignAndSendTransaction(data, "", new HexBigInteger(0), gasPrice, gas);
         }
 
         private Contract contract;
@@ -287,37 +287,6 @@ namespace eVi.abi.lib.pcl
         public string NewOwner {get; set;}
 
     }
-
-    public class ConfirmationEventDTO
-    {
-        [Parameter("address", "owner", 1, false)]
-        public string Owner {get; set;}
-
-        [Parameter("bytes32", "operation", 2, false)]
-        public byte[] Operation {get; set;}
-
-    }
-
-    public class RevokeEventDTO
-    {
-        [Parameter("address", "owner", 1, false)]
-        public string Owner {get; set;}
-
-        [Parameter("bytes32", "operation", 2, false)]
-        public byte[] Operation {get; set;}
-
-    }
-
-    public class OwnerChangedEventDTO
-    {
-        [Parameter("address", "oldOwner", 1, false)]
-        public string OldOwner {get; set;}
-
-        [Parameter("address", "newOwner", 2, false)]
-        public string NewOwner {get; set;}
-
-    }
-
 
 }
 

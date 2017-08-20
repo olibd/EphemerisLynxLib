@@ -19,7 +19,7 @@ namespace eVi.abi.lib.pcl
         {
             string data = web3.Eth.DeployContract.GetData(BYTE_CODE, ABI , _location, _hash, _owner);
             TransactionService transactionService = new TransactionService(keyFrom, web3);
-            return await transactionService.SignAndSendTransaction(data, "", gasPrice, gas);
+            return await transactionService.SignAndSendTransaction(data, "", new HexBigInteger(0), gasPrice, gas);
         }
 
         private Contract contract;
