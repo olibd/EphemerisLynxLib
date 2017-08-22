@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Nethereum.Hex.HexTypes;
+using Nethereum.RPC.Eth.DTOs;
 using Nethereum.Web3;
 
 namespace eVi.abi.lib.pcl
@@ -21,17 +22,25 @@ namespace eVi.abi.lib.pcl
             _addressFrom = web3.GetAddressFromPrivateKey(_privateKey);
         }
 
-        public async Task<string> SignAndSendTransaction(string data, string to, HexBigInteger value = null, HexBigInteger gasPrice = null, HexBigInteger gasLimit = null)
+        public async Task<string> SignAndSendTransaction(string data, string to, HexBigInteger value = null, HexBigInteger gasPrice = null)
         {
             value = value ?? new HexBigInteger(0);
             gasPrice = gasPrice ?? new HexBigInteger(0);
-            gasLimit = gasLimit ?? new HexBigInteger(0);
+
+            HexBigInteger gasLimit = await EstimateGasLimit(data, to);
 
             HexBigInteger nonce = await _web3.Eth.Transactions.GetTransactionCount.SendRequestAsync(_addressFrom);
-            string transaction =
-                _web3.OfflineTransactionSigning.SignTransaction(_privateKey, to, value, nonce, gasPrice, gasLimit,
-                    data);
+            string transaction = _web3.OfflineTransactionSigning.SignTransaction(_privateKey, to, value, nonce, gasPrice, gasLimit, data);
             return await _web3.Eth.Transactions.SendRawTransaction.SendRequestAsync("0x" + transaction);
+        }
+
+        private async Task<HexBigInteger> EstimateGasLimit(string data, string to)
+        {
+            EthTransactionsService txService = new EthTransactionsService(_web3.Client);
+            HexBigInteger gasLimit = await txService.EstimateGas.SendRequestAsync(String.IsNullOrEmpty(to)
+                ? new CallInput {Data = data}
+                : new CallInput {Data = data, To = to});
+            return gasLimit;
         }
     }
 }
