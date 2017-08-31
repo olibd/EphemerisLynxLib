@@ -42,9 +42,6 @@
     <Compile Include="WatchdogService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Nethereum.Portable, Version=1.0.6239.26382, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Nethereum.Portable.1.0.6\lib\portable45-net45+win8+wpa81\Nethereum.Portable.dll</HintPath>
-    </Reference>
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
       <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\netstandard1.1\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
     </Reference>
@@ -60,9 +57,9 @@
     <Reference Include="EdjCase.JsonRpc.Client">
       <HintPath>..\packages\EdjCase.JsonRpc.Client.1.0.5\lib\portable45-net45+win8+wpa81\EdjCase.JsonRpc.Client.dll</HintPath>
     </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <Reference Include="Nethereum.Portable">
+      <HintPath>..\packages\Nethereum.Portable.1.0.6\lib\portable45-net45+win8+wpa81\Nethereum.Portable.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>
