@@ -287,5 +287,6 @@ namespace eVi.abi.lib.pcl
         public string NewOwner {get; set;}
 
     }
+
 }
 
