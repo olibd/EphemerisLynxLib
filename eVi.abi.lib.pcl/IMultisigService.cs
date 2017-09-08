@@ -15,21 +15,25 @@ namespace eVi.abi.lib.pcl
 
         public static string BYTE_CODE = "0x";
 
-        public static Task<string> DeployContractAsync(Web3 web3, string addressFrom,  HexBigInteger gas = null, HexBigInteger valueAmount = null)
+        public static async Task<string> DeployContractAsync(Web3 web3, string keyFrom,  HexBigInteger gasPrice = null, HexBigInteger valueAmount = null)
         {
-            return web3.Eth.DeployContract.SendRequestAsync(BYTE_CODE, addressFrom, gas, valueAmount );
+            string data = web3.Eth.DeployContract.GetData(BYTE_CODE, ABI );
+            TransactionService transactionService = new TransactionService(keyFrom, web3);
+            return await transactionService.SignAndSendTransaction(data, "", new HexBigInteger(0), gasPrice);
         }
 
         private Contract contract;
+        private TransactionService _transactionService;
 
         public string GetAddress()
         {
             return contract.Address;
         }
 
-        public IMultisigService(Web3 web3, string address)
+        public IMultisigService(Web3 web3, string key, string address)
         {
             this.web3 = web3;
+            this._transactionService = new TransactionService(key, web3);
             this.contract = web3.Eth.GetContract(ABI, address);
         }
 
@@ -62,17 +66,20 @@ namespace eVi.abi.lib.pcl
             return function.CallAsync<byte[]>(_to, _value, _data);
         }
 
-        public Task<string> ConfirmAsync(string addressFrom, byte[] _h, HexBigInteger gas = null, HexBigInteger valueAmount = null) {
+        public async Task<string> ConfirmAsync(byte[] _h, HexBigInteger gasPrice = null, HexBigInteger valueAmount = null) {
             var function = GetFunctionConfirm();
-            return function.SendTransactionAsync(addressFrom, gas, valueAmount, _h);
+	        string data = function.GetData(_h);
+	        return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
         }
-        public Task<string> ChangeMultisigOwnerAsync(string addressFrom, string _from, string _to, HexBigInteger gas = null, HexBigInteger valueAmount = null) {
+        public async Task<string> ChangeMultisigOwnerAsync(string _from, string _to, HexBigInteger gasPrice = null, HexBigInteger valueAmount = null) {
             var function = GetFunctionChangeMultisigOwner();
-            return function.SendTransactionAsync(addressFrom, gas, valueAmount, _from, _to);
+	        string data = function.GetData(_from, _to);
+	        return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
         }
-        public Task<string> ProposeAsync(string addressFrom, string _to, BigInteger _value, byte[] _data, HexBigInteger gas = null, HexBigInteger valueAmount = null) {
+        public async Task<string> ProposeAsync(string _to, BigInteger _value, byte[] _data, HexBigInteger gasPrice = null, HexBigInteger valueAmount = null) {
             var function = GetFunctionPropose();
-            return function.SendTransactionAsync(addressFrom, gas, valueAmount, _to, _value, _data);
+	        string data = function.GetData(_to, _value, _data);
+	        return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
         }
 
 
