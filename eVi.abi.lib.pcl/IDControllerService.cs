@@ -55,6 +55,9 @@ namespace eVi.abi.lib.pcl
         public Function GetFunctionRevokeCertificate() {
             return contract.GetFunction("revokeCertificate");
         }
+        public Function GetFunctionAddCertificate() {
+            return contract.GetFunction("addCertificate");
+        }
         public Function GetFunctionDeleteID() {
             return contract.GetFunction("deleteID");
         }
