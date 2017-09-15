@@ -287,37 +287,5 @@ namespace eVi.abi.lib.pcl
         public string NewOwner {get; set;}
 
     }
-
-    public class ConfirmationEventDTO
-    {
-        [Parameter("address", "owner", 1, false)]
-        public string Owner {get; set;}
-
-        [Parameter("bytes32", "operation", 2, false)]
-        public byte[] Operation {get; set;}
-
-    }
-
-    public class RevokeEventDTO
-    {
-        [Parameter("address", "owner", 1, false)]
-        public string Owner {get; set;}
-
-        [Parameter("bytes32", "operation", 2, false)]
-        public byte[] Operation {get; set;}
-
-    }
-
-    public class OwnerChangedEventDTO
-    {
-        [Parameter("address", "oldOwner", 1, false)]
-        public string OldOwner {get; set;}
-
-        [Parameter("address", "newOwner", 2, false)]
-        public string NewOwner {get; set;}
-
-    }
-
-
 }
 
