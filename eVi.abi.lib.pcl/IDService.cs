@@ -18,12 +18,12 @@ namespace eVi.abi.lib.pcl
         public static async Task<string> DeployContractAsync(Web3 web3, string keyFrom,  HexBigInteger gasPrice = null, HexBigInteger valueAmount = null)
         {
             string data = web3.Eth.DeployContract.GetData(BYTE_CODE, ABI );
-            TransactionService transactionService = new TransactionService(keyFrom, web3);
+            ITransactionService transactionService = new ConstantGasTransactionService(keyFrom, web3);
             return await transactionService.SignAndSendTransaction(data, "", new HexBigInteger(0), gasPrice);
         }
 
         private Contract contract;
-        private TransactionService _transactionService;
+        private ITransactionService _transactionService;
 
         public string GetAddress()
         {
@@ -33,7 +33,7 @@ namespace eVi.abi.lib.pcl
         public IDService(Web3 web3, string key, string address)
         {
             this.web3 = web3;
-            this._transactionService = new TransactionService(key, web3);
+            this._transactionService = new ConstantGasTransactionService(key, web3);
             this.contract = web3.Eth.GetContract(ABI, address);
         }
 
@@ -109,43 +109,43 @@ namespace eVi.abi.lib.pcl
 
         public async Task<string> AddAttributeAsync(byte[] key, string attr, HexBigInteger gasPrice = null, HexBigInteger valueAmount = null) {
             var function = GetFunctionAddAttribute();
-	        string data = function.GetData(key, attr);
-	        return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
+                string data = function.GetData(key, attr);
+                return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
         }
         public async Task<string> AddCertificateAsync(byte[] key, string cert, HexBigInteger gasPrice = null, HexBigInteger valueAmount = null) {
             var function = GetFunctionAddCertificate();
-	        string data = function.GetData(key, cert);
-	        return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
+                string data = function.GetData(key, cert);
+                return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
         }
         public async Task<string> KillAsync( HexBigInteger gasPrice = null, HexBigInteger valueAmount = null) {
             var function = GetFunctionKill();
-	        string data = function.GetData();
-	        return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
+                string data = function.GetData();
+                return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
         }
         public async Task<string> CreateCertificateAsync(string _location, string _hash, string _owningAttribute, HexBigInteger gasPrice = null, HexBigInteger valueAmount = null) {
             var function = GetFunctionCreateCertificate();
-	        string data = function.GetData(_location, _hash, _owningAttribute);
-	        return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
+                string data = function.GetData(_location, _hash, _owningAttribute);
+                return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
         }
         public async Task<string> RevokeCertificateAsync(string cert, HexBigInteger gasPrice = null, HexBigInteger valueAmount = null) {
             var function = GetFunctionRevokeCertificate();
-	        string data = function.GetData(cert);
-	        return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
+                string data = function.GetData(cert);
+                return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
         }
         public async Task<string> AddCertificateAsync(string attr, string cert, HexBigInteger gasPrice = null, HexBigInteger valueAmount = null) {
             var function = GetFunctionAddCertificate();
-	        string data = function.GetData(attr, cert);
-	        return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
+                string data = function.GetData(attr, cert);
+                return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
         }
         public async Task<string> ChangeOwnerAsync(string newOwner, HexBigInteger gasPrice = null, HexBigInteger valueAmount = null) {
             var function = GetFunctionChangeOwner();
-	        string data = function.GetData(newOwner);
-	        return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
+                string data = function.GetData(newOwner);
+                return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
         }
         public async Task<string> RemoveAttributeAsync(byte[] key, HexBigInteger gasPrice = null, HexBigInteger valueAmount = null) {
             var function = GetFunctionRemoveAttribute();
-	        string data = function.GetData(key);
-	        return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
+                string data = function.GetData(key);
+                return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
         }
 
 
