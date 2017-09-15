@@ -18,12 +18,12 @@ namespace eVi.abi.lib.pcl
         public static async Task<string> DeployContractAsync(Web3 web3, string keyFrom, string[] _owners, BigInteger _required, HexBigInteger gasPrice = null, HexBigInteger valueAmount = null)
         {
             string data = web3.Eth.DeployContract.GetData(BYTE_CODE, ABI , _owners, _required);
-            TransactionService transactionService = new TransactionService(keyFrom, web3);
+            ITransactionService transactionService = new ConstantGasTransactionService(keyFrom, web3);
             return await transactionService.SignAndSendTransaction(data, "", new HexBigInteger(0), gasPrice);
         }
 
         private Contract contract;
-        private TransactionService _transactionService;
+        private ITransactionService _transactionService;
 
         public string GetAddress()
         {
@@ -33,7 +33,7 @@ namespace eVi.abi.lib.pcl
         public MultiOwnedService(Web3 web3, string key, string address)
         {
             this.web3 = web3;
-            this._transactionService = new TransactionService(key, web3);
+            this._transactionService = new ConstantGasTransactionService(key, web3);
             this.contract = web3.Eth.GetContract(ABI, address);
         }
 
@@ -117,33 +117,33 @@ namespace eVi.abi.lib.pcl
 
         public async Task<string> IsMultisigOwnerAsync(string _addr, HexBigInteger gasPrice = null, HexBigInteger valueAmount = null) {
             var function = GetFunctionIsMultisigOwner();
-	        string data = function.GetData(_addr);
-	        return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
+                string data = function.GetData(_addr);
+                return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
         }
         public async Task<string> RemoveMultisigOwnerAsync(string _owner, HexBigInteger gasPrice = null, HexBigInteger valueAmount = null) {
             var function = GetFunctionRemoveMultisigOwner();
-	        string data = function.GetData(_owner);
-	        return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
+                string data = function.GetData(_owner);
+                return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
         }
         public async Task<string> ChangeMultisigOwnerAsync(string _from, string _to, HexBigInteger gasPrice = null, HexBigInteger valueAmount = null) {
             var function = GetFunctionChangeMultisigOwner();
-	        string data = function.GetData(_from, _to);
-	        return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
+                string data = function.GetData(_from, _to);
+                return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
         }
         public async Task<string> AddMultisigOwnerAsync(string _owner, HexBigInteger gasPrice = null, HexBigInteger valueAmount = null) {
             var function = GetFunctionAddMultisigOwner();
-	        string data = function.GetData(_owner);
-	        return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
+                string data = function.GetData(_owner);
+                return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
         }
         public async Task<string> RevokeAsync(byte[] _operation, HexBigInteger gasPrice = null, HexBigInteger valueAmount = null) {
             var function = GetFunctionRevoke();
-	        string data = function.GetData(_operation);
-	        return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
+                string data = function.GetData(_operation);
+                return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
         }
         public async Task<string> ChangeRequirementAsync(BigInteger _newRequired, HexBigInteger gasPrice = null, HexBigInteger valueAmount = null) {
             var function = GetFunctionChangeRequirement();
-	        string data = function.GetData(_newRequired);
-	        return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
+                string data = function.GetData(_newRequired);
+                return await _transactionService.SignAndSendTransaction(data, contract.Address, valueAmount, gasPrice);
         }
 
 
