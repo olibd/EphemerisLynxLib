@@ -18,12 +18,12 @@ namespace eVi.abi.lib.pcl
         public static async Task<string> DeployContractAsync(Web3 web3, string keyFrom,  HexBigInteger gasPrice = null, HexBigInteger valueAmount = null)
         {
             string data = web3.Eth.DeployContract.GetData(BYTE_CODE, ABI );
-            TransactionService transactionService = new TransactionService(keyFrom, web3);
+            ITransactionService transactionService = new ConstantGasTransactionService(keyFrom, web3);
             return await transactionService.SignAndSendTransaction(data, "", new HexBigInteger(0), gasPrice);
         }
 
         private Contract contract;
-        private TransactionService _transactionService;
+        private ITransactionService _transactionService;
 
         public string GetAddress()
         {
@@ -33,7 +33,7 @@ namespace eVi.abi.lib.pcl
         public OwnedService(Web3 web3, string key, string address)
         {
             this.web3 = web3;
-            this._transactionService = new TransactionService(key, web3);
+            this._transactionService = new ConstantGasTransactionService(key, web3);
             this.contract = web3.Eth.GetContract(ABI, address);
         }
 
