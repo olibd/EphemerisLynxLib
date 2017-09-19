@@ -28,15 +28,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ConstantGasTransactionService.cs" />
-    <Compile Include="ITransactionService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AttributeService.cs" />
     <Compile Include="CertificateService.cs" />
+    <Compile Include="ConstantGasTransactionService.cs" />
     <Compile Include="FactoryService.cs" />
     <Compile Include="IDControllerService.cs" />
     <Compile Include="IDService.cs" />
     <Compile Include="IMultisigService.cs" />
+    <Compile Include="ITransactionService.cs" />
     <Compile Include="MortalService.cs" />
     <Compile Include="MultiOwnedService.cs" />
     <Compile Include="OwnedService.cs" />
