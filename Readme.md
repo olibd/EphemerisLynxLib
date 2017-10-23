@@ -17,7 +17,7 @@ You can just import the PCL directly in your Visual Studio project by reference 
 
 ## API Reference
 
-The current version of this library uses the Ephemeris Virtual ID contracts version 0.1
+The current version of this library uses the Ephemeris Virtual ID contracts version 0.3
 
 ## Tests
 
@@ -26,6 +26,9 @@ Tests for this library are found in the under the UnitTests project.
 ## Contributors
 
 Olivier Brochu Dufour, Jonathan Montineri
+
+## version
+0.3
 
 ## License
 
