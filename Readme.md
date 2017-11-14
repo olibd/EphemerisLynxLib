@@ -28,7 +28,7 @@ Tests for this library are found in the under the UnitTests project.
 Olivier Brochu Dufour, Jonathan Montineri
 
 ## version
-0.3
+0.4
 
 ## License
 
