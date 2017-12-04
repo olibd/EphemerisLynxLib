@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace eVi.abi.lib.pcl
 {
     [Serializable]
-    internal class TransactionFailed : Exception
+    public class TransactionFailed : Exception
     {
         public TransactionFailed()
         {
