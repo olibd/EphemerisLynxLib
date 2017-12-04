@@ -34,7 +34,14 @@ namespace eVi.abi.lib.pcl
 
             HexBigInteger nonce = await _web3.Eth.Transactions.GetTransactionCount.SendRequestAsync(_addressFrom);
             string transaction = _web3.OfflineTransactionSigning.SignTransaction(_privateKey, to, value, nonce, gasPrice, gasLimit, data);
-            return await _web3.Eth.Transactions.SendRawTransaction.SendRequestAsync("0x" + transaction);
+            try
+            {
+                return await _web3.Eth.Transactions.SendRawTransaction.SendRequestAsync("0x" + transaction);
+            }
+            catch (Exception e)
+            {
+                throw new TransactionFailed(e);
+            }
         }
 
         private async Task<HexBigInteger> EstimateGasLimit(string data, string to)
@@ -42,8 +49,8 @@ namespace eVi.abi.lib.pcl
 
             EthTransactionsService txService = new EthTransactionsService(_web3.Client);
             HexBigInteger gasEstimate = await txService.EstimateGas.SendRequestAsync(String.IsNullOrEmpty(to)
-                ? new CallInput {Data = data}
-                : new CallInput {Data = data, To = to});
+                ? new CallInput { Data = data }
+                : new CallInput { Data = data, To = to });
 
             //Use this to compensate for some transactions using slightly more gas than estimated
             BigInteger gasLimit = gasEstimate.Value * EstimateMultiplier;

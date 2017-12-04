@@ -13,7 +13,7 @@ namespace eVi.abi.lib.pcl
 
         public static string ABI = @"[]";
 
-        public static string BYTE_CODE = "0x60606040523415600e57600080fd5b603580601b6000396000f3006060604052600080fd00a165627a7a723058209a2bf757c11ba1d0086d8dcd458b332b808a9c8cb6ec0fa00f68d55255ff27ac0029";
+        public static string BYTE_CODE = "0x60606040523415600b57fe5b5b60338060196000396000f30060606040525bfe00a165627a7a72305820332ab8711ac0d6641e17bf3d6fd75b24bb4b913eefa241b5e255e9bbe2266caf0029";
 
         public static async Task<string> DeployContractAsync(Web3 web3, string keyFrom,  HexBigInteger gasPrice = null, HexBigInteger valueAmount = null)
         {

@@ -11,9 +11,9 @@ namespace eVi.abi.lib.pcl
    {
         private readonly Web3 web3;
 
-        public static string ABI = @"[{'constant':false,'inputs':[{'name':'new_address','type':'address'}],'name':'upgrade','outputs':[],'payable':false,'stateMutability':'nonpayable','type':'function'},{'constant':true,'inputs':[],'name':'last_completed_migration','outputs':[{'name':'','type':'uint256'}],'payable':false,'stateMutability':'view','type':'function'},{'constant':true,'inputs':[],'name':'owner','outputs':[{'name':'','type':'address'}],'payable':false,'stateMutability':'view','type':'function'},{'constant':false,'inputs':[{'name':'completed','type':'uint256'}],'name':'setCompleted','outputs':[],'payable':false,'stateMutability':'nonpayable','type':'function'},{'inputs':[],'payable':false,'stateMutability':'nonpayable','type':'constructor'}]";
+        public static string ABI = @"[{'constant':false,'inputs':[{'name':'new_address','type':'address'}],'name':'upgrade','outputs':[],'payable':false,'type':'function'},{'constant':true,'inputs':[],'name':'last_completed_migration','outputs':[{'name':'','type':'uint256'}],'payable':false,'type':'function'},{'constant':true,'inputs':[],'name':'owner','outputs':[{'name':'','type':'address'}],'payable':false,'type':'function'},{'constant':false,'inputs':[{'name':'completed','type':'uint256'}],'name':'setCompleted','outputs':[],'payable':false,'type':'function'},{'inputs':[],'payable':false,'type':'constructor'}]";
 
-        public static string BYTE_CODE = "0x6060604052341561000f57600080fd5b336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506102db8061005e6000396000f300606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630900f01014610067578063445df0ac146100a05780638da5cb5b146100c9578063fdacd5761461011e575b600080fd5b341561007257600080fd5b61009e600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610141565b005b34156100ab57600080fd5b6100b3610224565b6040518082815260200191505060405180910390f35b34156100d457600080fd5b6100dc61022a565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561012957600080fd5b61013f600480803590602001909190505061024f565b005b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415610220578190508073ffffffffffffffffffffffffffffffffffffffff1663fdacd5766001546040518263ffffffff167c010000000000000000000000000000000000000000000000000000000002815260040180828152602001915050600060405180830381600087803b151561020b57600080fd5b6102c65a03f1151561021c57600080fd5b5050505b5050565b60015481565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614156102ac57806001819055505b505600a165627a7a72305820b4b09362e98a5b87ca96c626288ff1043b2aa31ca36065682ba331d0ef731e140029";
+        public static string BYTE_CODE = "0x6060604052341561000c57fe5b5b33600060006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b5b6102c58061005f6000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630900f0101461005c578063445df0ac146100925780638da5cb5b146100b8578063fdacd5761461010a575bfe5b341561006457fe5b610090600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061012a565b005b341561009a57fe5b6100a261020a565b6040518082815260200191505060405180910390f35b34156100c057fe5b6100c8610210565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561011257fe5b6101286004808035906020019091905050610236565b005b6000600060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161415610205578190508073ffffffffffffffffffffffffffffffffffffffff1663fdacd5766001546040518263ffffffff167c010000000000000000000000000000000000000000000000000000000002815260040180828152602001915050600060405180830381600087803b15156101f257fe5b6102c65a03f1151561020057fe5b5050505b5b5b5050565b60015481565b600060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16141561029557806001819055505b5b5b505600a165627a7a72305820a8c96bf453947d24d5e623cc2bdbdb052bb862e2d4ba0cb53ea8694c078e983e0029";
 
         public static async Task<string> DeployContractAsync(Web3 web3, string keyFrom,  HexBigInteger gasPrice = null, HexBigInteger valueAmount = null)
         {
@@ -53,11 +53,19 @@ namespace eVi.abi.lib.pcl
 
         public Task<BigInteger> Last_completed_migrationAsyncCall() {
             var function = GetFunctionLast_completed_migration();
-            return function.CallAsync<BigInteger>();
+            try{
+                return function.CallAsync<BigInteger>();
+            }catch(Exception e){
+                throw new CallFailed(e);
+            }
         }
         public Task<string> OwnerAsyncCall() {
             var function = GetFunctionOwner();
-            return function.CallAsync<string>();
+            try{
+                return function.CallAsync<string>();
+            }catch(Exception e){
+                throw new CallFailed(e);
+            }
         }
 
         public async Task<string> UpgradeAsync(string new_address, HexBigInteger gasPrice = null, HexBigInteger valueAmount = null) {
