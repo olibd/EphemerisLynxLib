@@ -93,9 +93,9 @@ namespace eVi.abi.lib.pcl
 
         public Task<byte[]> AttributesKeysAsyncCall(BigInteger a)
         {
-            var function = GetFunctionAttributesKeys();
             try
             {
+                var function = GetFunctionAttributesKeys();
                 return function.CallAsync<byte[]>(a);
             }
             catch (Exception e)
@@ -105,9 +105,9 @@ namespace eVi.abi.lib.pcl
         }
         public Task<string> CreateCertificateAsyncCall(string _location, string _hash, string _owningAttribute)
         {
-            var function = GetFunctionCreateCertificate();
             try
             {
+                var function = GetFunctionCreateCertificate();
                 return function.CallAsync<string>(_location, _hash, _owningAttribute);
             }
             catch (Exception e)
@@ -117,9 +117,9 @@ namespace eVi.abi.lib.pcl
         }
         public Task<string> OwnerAsyncCall()
         {
-            var function = GetFunctionOwner();
             try
             {
+                var function = GetFunctionOwner();
                 return function.CallAsync<string>();
             }
             catch (Exception e)
@@ -129,9 +129,9 @@ namespace eVi.abi.lib.pcl
         }
         public Task<bool> AddAttributeAsyncCall(string attr)
         {
-            var function = GetFunctionAddAttribute();
             try
             {
+                var function = GetFunctionAddAttribute();
                 return function.CallAsync<bool>(attr);
             }
             catch (Exception e)
@@ -141,9 +141,9 @@ namespace eVi.abi.lib.pcl
         }
         public Task<string> AttributesAsyncCall(byte[] a)
         {
-            var function = GetFunctionAttributes();
             try
             {
+                var function = GetFunctionAttributes();
                 return function.CallAsync<string>(a);
             }
             catch (Exception e)
@@ -153,9 +153,9 @@ namespace eVi.abi.lib.pcl
         }
         public Task<BigInteger> AttributeCountAsyncCall()
         {
-            var function = GetFunctionAttributeCount();
             try
             {
+                var function = GetFunctionAttributeCount();
                 return function.CallAsync<BigInteger>();
             }
             catch (Exception e)
@@ -165,9 +165,9 @@ namespace eVi.abi.lib.pcl
         }
         public Task<string> GetAttributeAsyncCall(byte[] key)
         {
-            var function = GetFunctionGetAttribute();
             try
             {
+                var function = GetFunctionGetAttribute();
                 return function.CallAsync<string>(key);
             }
             catch (Exception e)

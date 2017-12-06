@@ -91,48 +91,48 @@ namespace eVi.abi.lib.pcl
         }
 
         public Task<bool> IsMultisigOwnerAsyncCall(string _addr) {
-            var function = GetFunctionIsMultisigOwner();
-            try{
+            try{ 
+                var function = GetFunctionIsMultisigOwner();
                 return function.CallAsync<bool>(_addr);
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
         public Task<BigInteger> M_numOwnersAsyncCall() {
-            var function = GetFunctionM_numOwners();
-            try{
+            try{ 
+                var function = GetFunctionM_numOwners();
                 return function.CallAsync<BigInteger>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
         public Task<string> GetMultisigOwnerAsyncCall(BigInteger ownerIndex) {
-            var function = GetFunctionGetMultisigOwner();
-            try{
+            try{ 
+                var function = GetFunctionGetMultisigOwner();
                 return function.CallAsync<string>(ownerIndex);
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
         public Task<BigInteger> M_requiredAsyncCall() {
-            var function = GetFunctionM_required();
-            try{
+            try{ 
+                var function = GetFunctionM_required();
                 return function.CallAsync<BigInteger>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
         public Task<string> OwnerAsyncCall() {
-            var function = GetFunctionOwner();
-            try{
+            try{ 
+                var function = GetFunctionOwner();
                 return function.CallAsync<string>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
         public Task<bool> HasConfirmedAsyncCall(byte[] _operation, string _owner) {
-            var function = GetFunctionHasConfirmed();
-            try{
+            try{ 
+                var function = GetFunctionHasConfirmed();
                 return function.CallAsync<bool>(_operation, _owner);
             }catch(Exception e){
                 throw new CallFailed(e);

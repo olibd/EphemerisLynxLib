@@ -141,9 +141,9 @@ namespace eVi.abi.lib.pcl
 
         public Task<byte[]> ProposeDeletionAsyncCall(string _callDestination)
         {
-            var function = GetFunctionProposeDeletion();
             try
             {
+                var function = GetFunctionProposeDeletion();
                 return function.CallAsync<byte[]>(_callDestination);
             }
             catch (Exception e)
@@ -153,9 +153,9 @@ namespace eVi.abi.lib.pcl
         }
         public Task<bool> IsMultisigOwnerAsyncCall(string _addr)
         {
-            var function = GetFunctionIsMultisigOwner();
             try
             {
+                var function = GetFunctionIsMultisigOwner();
                 return function.CallAsync<bool>(_addr);
             }
             catch (Exception e)
@@ -165,9 +165,9 @@ namespace eVi.abi.lib.pcl
         }
         public Task<BigInteger> M_numOwnersAsyncCall()
         {
-            var function = GetFunctionM_numOwners();
             try
             {
+                var function = GetFunctionM_numOwners();
                 return function.CallAsync<BigInteger>();
             }
             catch (Exception e)
@@ -177,9 +177,9 @@ namespace eVi.abi.lib.pcl
         }
         public Task<string> GetMultisigOwnerAsyncCall(BigInteger ownerIndex)
         {
-            var function = GetFunctionGetMultisigOwner();
             try
             {
+                var function = GetFunctionGetMultisigOwner();
                 return function.CallAsync<string>(ownerIndex);
             }
             catch (Exception e)
@@ -189,9 +189,9 @@ namespace eVi.abi.lib.pcl
         }
         public Task<BigInteger> M_requiredAsyncCall()
         {
-            var function = GetFunctionM_required();
             try
             {
+                var function = GetFunctionM_required();
                 return function.CallAsync<BigInteger>();
             }
             catch (Exception e)
@@ -201,9 +201,9 @@ namespace eVi.abi.lib.pcl
         }
         public Task<bool> ConfirmAsyncCall(byte[] _h)
         {
-            var function = GetFunctionConfirm();
             try
             {
+                var function = GetFunctionConfirm();
                 return function.CallAsync<bool>(_h);
             }
             catch (Exception e)
@@ -213,9 +213,9 @@ namespace eVi.abi.lib.pcl
         }
         public Task<string> OwnerAsyncCall()
         {
-            var function = GetFunctionOwner();
             try
             {
+                var function = GetFunctionOwner();
                 return function.CallAsync<string>();
             }
             catch (Exception e)
@@ -225,9 +225,9 @@ namespace eVi.abi.lib.pcl
         }
         public Task<byte[]> ProposeMigrationAsyncCall(string _callDestination, string newOwner)
         {
-            var function = GetFunctionProposeMigration();
             try
             {
+                var function = GetFunctionProposeMigration();
                 return function.CallAsync<byte[]>(_callDestination, newOwner);
             }
             catch (Exception e)
@@ -237,9 +237,9 @@ namespace eVi.abi.lib.pcl
         }
         public Task<bool> HasConfirmedAsyncCall(byte[] _operation, string _owner)
         {
-            var function = GetFunctionHasConfirmed();
             try
             {
+                var function = GetFunctionHasConfirmed();
                 return function.CallAsync<bool>(_operation, _owner);
             }
             catch (Exception e)
@@ -249,9 +249,9 @@ namespace eVi.abi.lib.pcl
         }
         public Task<bool> CancelAsyncCall(byte[] _h)
         {
-            var function = GetFunctionCancel();
             try
             {
+                var function = GetFunctionCancel();
                 return function.CallAsync<bool>(_h);
             }
             catch (Exception e)

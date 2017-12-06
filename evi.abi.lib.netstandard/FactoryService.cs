@@ -55,24 +55,24 @@ namespace eVi.abi.lib.pcl
         }
 
         public Task<string> CreateIDAsyncCall() {
-            var function = GetFunctionCreateID();
-            try{
+            try{ 
+                var function = GetFunctionCreateID();
                 return function.CallAsync<string>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
         public Task<string> RegistryAsyncCall() {
-            var function = GetFunctionRegistry();
-            try{
+            try{ 
+                var function = GetFunctionRegistry();
                 return function.CallAsync<string>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
         public Task<string> OwnerAsyncCall() {
-            var function = GetFunctionOwner();
-            try{
+            try{ 
+                var function = GetFunctionOwner();
                 return function.CallAsync<string>();
             }catch(Exception e){
                 throw new CallFailed(e);

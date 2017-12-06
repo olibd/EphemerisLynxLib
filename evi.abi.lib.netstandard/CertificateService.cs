@@ -61,40 +61,40 @@ namespace eVi.abi.lib.pcl
         }
 
         public Task<string> HashAsyncCall() {
-            var function = GetFunctionHash();
-            try{
+            try{ 
+                var function = GetFunctionHash();
                 return function.CallAsync<string>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
         public Task<string> OwningAttributeAsyncCall() {
-            var function = GetFunctionOwningAttribute();
-            try{
+            try{ 
+                var function = GetFunctionOwningAttribute();
                 return function.CallAsync<string>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
         public Task<string> LocationAsyncCall() {
-            var function = GetFunctionLocation();
-            try{
+            try{ 
+                var function = GetFunctionLocation();
                 return function.CallAsync<string>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
         public Task<bool> RevokedAsyncCall() {
-            var function = GetFunctionRevoked();
-            try{
+            try{ 
+                var function = GetFunctionRevoked();
                 return function.CallAsync<bool>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
         public Task<string> OwnerAsyncCall() {
-            var function = GetFunctionOwner();
-            try{
+            try{ 
+                var function = GetFunctionOwner();
                 return function.CallAsync<string>();
             }catch(Exception e){
                 throw new CallFailed(e);

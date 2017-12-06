@@ -49,16 +49,16 @@ namespace eVi.abi.lib.pcl
 
 
         public Task<string> IdsAsyncCall(string a) {
-            var function = GetFunctionIds();
-            try{
+            try{ 
+                var function = GetFunctionIds();
                 return function.CallAsync<string>(a);
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
         public Task<string> OwnerAsyncCall() {
-            var function = GetFunctionOwner();
-            try{
+            try{ 
+                var function = GetFunctionOwner();
                 return function.CallAsync<string>();
             }catch(Exception e){
                 throw new CallFailed(e);

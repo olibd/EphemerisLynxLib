@@ -67,64 +67,64 @@ namespace eVi.abi.lib.pcl
 
 
         public Task<string> CertificatesAsyncCall(string a) {
-            var function = GetFunctionCertificates();
-            try{
+            try{ 
+                var function = GetFunctionCertificates();
                 return function.CallAsync<string>(a);
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
         public Task<string> HashAsyncCall() {
-            var function = GetFunctionHash();
-            try{
+            try{ 
+                var function = GetFunctionHash();
                 return function.CallAsync<string>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
         public Task<string> CertificateKeysAsyncCall(BigInteger a) {
-            var function = GetFunctionCertificateKeys();
-            try{
+            try{ 
+                var function = GetFunctionCertificateKeys();
                 return function.CallAsync<string>(a);
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
         public Task<string> LocationAsyncCall() {
-            var function = GetFunctionLocation();
-            try{
+            try{ 
+                var function = GetFunctionLocation();
                 return function.CallAsync<string>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
         public Task<BigInteger> CertificateCountAsyncCall() {
-            var function = GetFunctionCertificateCount();
-            try{
+            try{ 
+                var function = GetFunctionCertificateCount();
                 return function.CallAsync<BigInteger>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
         public Task<byte[]> DescriptionAsyncCall() {
-            var function = GetFunctionDescription();
-            try{
+            try{ 
+                var function = GetFunctionDescription();
                 return function.CallAsync<byte[]>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
         public Task<string> OwnerAsyncCall() {
-            var function = GetFunctionOwner();
-            try{
+            try{ 
+                var function = GetFunctionOwner();
                 return function.CallAsync<string>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
         public Task<string> GetCertificateAsyncCall(string _issuer) {
-            var function = GetFunctionGetCertificate();
-            try{
+            try{ 
+                var function = GetFunctionGetCertificate();
                 return function.CallAsync<string>(_issuer);
             }catch(Exception e){
                 throw new CallFailed(e);

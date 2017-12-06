@@ -52,16 +52,16 @@ namespace eVi.abi.lib.pcl
 
 
         public Task<BigInteger> Last_completed_migrationAsyncCall() {
-            var function = GetFunctionLast_completed_migration();
-            try{
+            try{ 
+                var function = GetFunctionLast_completed_migration();
                 return function.CallAsync<BigInteger>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
         public Task<string> OwnerAsyncCall() {
-            var function = GetFunctionOwner();
-            try{
+            try{ 
+                var function = GetFunctionOwner();
                 return function.CallAsync<string>();
             }catch(Exception e){
                 throw new CallFailed(e);

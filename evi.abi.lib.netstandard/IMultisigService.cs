@@ -58,16 +58,16 @@ namespace eVi.abi.lib.pcl
         }
 
         public Task<bool> ConfirmAsyncCall(byte[] _h) {
-            var function = GetFunctionConfirm();
-            try{
+            try{ 
+                var function = GetFunctionConfirm();
                 return function.CallAsync<bool>(_h);
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
         public Task<byte[]> ProposeAsyncCall(string _to, BigInteger _value, byte[] _data) {
-            var function = GetFunctionPropose();
-            try{
+            try{ 
+                var function = GetFunctionPropose();
                 return function.CallAsync<byte[]>(_to, _value, _data);
             }catch(Exception e){
                 throw new CallFailed(e);
