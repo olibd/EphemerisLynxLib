@@ -42,10 +42,10 @@ namespace eVi.abi.lib.pcl
         }
 
 
-        public Task<string> OwnerAsyncCall() {
+        public async Task<string> OwnerAsyncCall() {
             try{ 
                 var function = GetFunctionOwner();
-                return function.CallAsync<string>();
+                return await function.CallAsync<string>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }

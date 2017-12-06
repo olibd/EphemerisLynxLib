@@ -60,42 +60,42 @@ namespace eVi.abi.lib.pcl
             return contract.GetEvent("Revoked");
         }
 
-        public Task<string> HashAsyncCall() {
+        public async Task<string> HashAsyncCall() {
             try{ 
                 var function = GetFunctionHash();
-                return function.CallAsync<string>();
+                return await function.CallAsync<string>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
-        public Task<string> OwningAttributeAsyncCall() {
+        public async Task<string> OwningAttributeAsyncCall() {
             try{ 
                 var function = GetFunctionOwningAttribute();
-                return function.CallAsync<string>();
+                return await function.CallAsync<string>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
-        public Task<string> LocationAsyncCall() {
+        public async Task<string> LocationAsyncCall() {
             try{ 
                 var function = GetFunctionLocation();
-                return function.CallAsync<string>();
+                return await function.CallAsync<string>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
-        public Task<bool> RevokedAsyncCall() {
+        public async Task<bool> RevokedAsyncCall() {
             try{ 
                 var function = GetFunctionRevoked();
-                return function.CallAsync<bool>();
+                return await function.CallAsync<bool>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
-        public Task<string> OwnerAsyncCall() {
+        public async Task<string> OwnerAsyncCall() {
             try{ 
                 var function = GetFunctionOwner();
-                return function.CallAsync<string>();
+                return await function.CallAsync<string>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }

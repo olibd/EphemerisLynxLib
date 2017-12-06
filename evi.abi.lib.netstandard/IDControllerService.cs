@@ -103,96 +103,96 @@ namespace eVi.abi.lib.pcl
         }
 
 
-        public Task<string> GetWatchDogsAsyncCall()
+        public async Task<string> GetWatchDogsAsyncCall()
         {
             try
             {
                 var function = GetFunctionGetWatchDogs();
-                return function.CallAsync<string>();
+                return await function.CallAsync<string>();
             }
             catch (Exception e)
             {
                 throw new CallFailed(e);
             }
         }
-        public Task<byte[]> GetAttributeKeyAsyncCall(BigInteger i)
+        public async Task<byte[]> GetAttributeKeyAsyncCall(BigInteger i)
         {
             try
             {
                 var function = GetFunctionGetAttributeKey();
-                return function.CallAsync<byte[]>(i);
+                return await function.CallAsync<byte[]>(i);
             }
             catch (Exception e)
             {
                 throw new CallFailed(e);
             }
         }
-        public Task<string> CreateCertificateAsyncCall(string _location, string _hash, string _owningAttribute)
+        public async Task<string> CreateCertificateAsyncCall(string _location, string _hash, string _owningAttribute)
         {
             try
             {
                 var function = GetFunctionCreateCertificate();
-                return function.CallAsync<string>(_location, _hash, _owningAttribute);
+                return await function.CallAsync<string>(_location, _hash, _owningAttribute);
             }
             catch (Exception e)
             {
                 throw new CallFailed(e);
             }
         }
-        public Task<string> OwnerAsyncCall()
+        public async Task<string> OwnerAsyncCall()
         {
             try
             {
                 var function = GetFunctionOwner();
-                return function.CallAsync<string>();
+                return await function.CallAsync<string>();
             }
             catch (Exception e)
             {
                 throw new CallFailed(e);
             }
         }
-        public Task<bool> AddAttributeAsyncCall(string attr)
+        public async Task<bool> AddAttributeAsyncCall(string attr)
         {
             try
             {
                 var function = GetFunctionAddAttribute();
-                return function.CallAsync<bool>(attr);
+                return await function.CallAsync<bool>(attr);
             }
             catch (Exception e)
             {
                 throw new CallFailed(e);
             }
         }
-        public Task<string> GetIDAsyncCall()
+        public async Task<string> GetIDAsyncCall()
         {
             try
             {
                 var function = GetFunctionGetID();
-                return function.CallAsync<string>();
+                return await function.CallAsync<string>();
             }
             catch (Exception e)
             {
                 throw new CallFailed(e);
             }
         }
-        public Task<BigInteger> AttributeCountAsyncCall()
+        public async Task<BigInteger> AttributeCountAsyncCall()
         {
             try
             {
                 var function = GetFunctionAttributeCount();
-                return function.CallAsync<BigInteger>();
+                return await function.CallAsync<BigInteger>();
             }
             catch (Exception e)
             {
                 throw new CallFailed(e);
             }
         }
-        public Task<string> GetAttributeAsyncCall(byte[] key)
+        public async Task<string> GetAttributeAsyncCall(byte[] key)
         {
             try
             {
                 var function = GetFunctionGetAttribute();
-                return function.CallAsync<string>(key);
+                return await function.CallAsync<string>(key);
             }
             catch (Exception e)
             {

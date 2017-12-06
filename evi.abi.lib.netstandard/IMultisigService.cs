@@ -57,18 +57,18 @@ namespace eVi.abi.lib.pcl
             return contract.GetEvent("ConfirmationNeeded");
         }
 
-        public Task<bool> ConfirmAsyncCall(byte[] _h) {
+        public async Task<bool> ConfirmAsyncCall(byte[] _h) {
             try{ 
                 var function = GetFunctionConfirm();
-                return function.CallAsync<bool>(_h);
+                return await function.CallAsync<bool>(_h);
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
-        public Task<byte[]> ProposeAsyncCall(string _to, BigInteger _value, byte[] _data) {
+        public async Task<byte[]> ProposeAsyncCall(string _to, BigInteger _value, byte[] _data) {
             try{ 
                 var function = GetFunctionPropose();
-                return function.CallAsync<byte[]>(_to, _value, _data);
+                return await function.CallAsync<byte[]>(_to, _value, _data);
             }catch(Exception e){
                 throw new CallFailed(e);
             }

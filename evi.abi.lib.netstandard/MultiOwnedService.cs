@@ -90,50 +90,50 @@ namespace eVi.abi.lib.pcl
             return contract.GetEvent("RequirementChanged");
         }
 
-        public Task<bool> IsMultisigOwnerAsyncCall(string _addr) {
+        public async Task<bool> IsMultisigOwnerAsyncCall(string _addr) {
             try{ 
                 var function = GetFunctionIsMultisigOwner();
-                return function.CallAsync<bool>(_addr);
+                return await function.CallAsync<bool>(_addr);
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
-        public Task<BigInteger> M_numOwnersAsyncCall() {
+        public async Task<BigInteger> M_numOwnersAsyncCall() {
             try{ 
                 var function = GetFunctionM_numOwners();
-                return function.CallAsync<BigInteger>();
+                return await function.CallAsync<BigInteger>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
-        public Task<string> GetMultisigOwnerAsyncCall(BigInteger ownerIndex) {
+        public async Task<string> GetMultisigOwnerAsyncCall(BigInteger ownerIndex) {
             try{ 
                 var function = GetFunctionGetMultisigOwner();
-                return function.CallAsync<string>(ownerIndex);
+                return await function.CallAsync<string>(ownerIndex);
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
-        public Task<BigInteger> M_requiredAsyncCall() {
+        public async Task<BigInteger> M_requiredAsyncCall() {
             try{ 
                 var function = GetFunctionM_required();
-                return function.CallAsync<BigInteger>();
+                return await function.CallAsync<BigInteger>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
-        public Task<string> OwnerAsyncCall() {
+        public async Task<string> OwnerAsyncCall() {
             try{ 
                 var function = GetFunctionOwner();
-                return function.CallAsync<string>();
+                return await function.CallAsync<string>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
-        public Task<bool> HasConfirmedAsyncCall(byte[] _operation, string _owner) {
+        public async Task<bool> HasConfirmedAsyncCall(byte[] _operation, string _owner) {
             try{ 
                 var function = GetFunctionHasConfirmed();
-                return function.CallAsync<bool>(_operation, _owner);
+                return await function.CallAsync<bool>(_operation, _owner);
             }catch(Exception e){
                 throw new CallFailed(e);
             }

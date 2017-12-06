@@ -54,26 +54,26 @@ namespace eVi.abi.lib.pcl
             return contract.GetEvent("ReturnIDController");
         }
 
-        public Task<string> CreateIDAsyncCall() {
+        public async Task<string> CreateIDAsyncCall() {
             try{ 
                 var function = GetFunctionCreateID();
-                return function.CallAsync<string>();
+                return await function.CallAsync<string>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
-        public Task<string> RegistryAsyncCall() {
+        public async Task<string> RegistryAsyncCall() {
             try{ 
                 var function = GetFunctionRegistry();
-                return function.CallAsync<string>();
+                return await function.CallAsync<string>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }
         }
-        public Task<string> OwnerAsyncCall() {
+        public async Task<string> OwnerAsyncCall() {
             try{ 
                 var function = GetFunctionOwner();
-                return function.CallAsync<string>();
+                return await function.CallAsync<string>();
             }catch(Exception e){
                 throw new CallFailed(e);
             }

@@ -139,120 +139,120 @@ namespace eVi.abi.lib.pcl
             return contract.GetEvent("RequirementChanged");
         }
 
-        public Task<byte[]> ProposeDeletionAsyncCall(string _callDestination)
+        public async Task<byte[]> ProposeDeletionAsyncCall(string _callDestination)
         {
             try
             {
                 var function = GetFunctionProposeDeletion();
-                return function.CallAsync<byte[]>(_callDestination);
+                return await function.CallAsync<byte[]>(_callDestination);
             }
             catch (Exception e)
             {
                 throw new CallFailed(e);
             }
         }
-        public Task<bool> IsMultisigOwnerAsyncCall(string _addr)
+        public async Task<bool> IsMultisigOwnerAsyncCall(string _addr)
         {
             try
             {
                 var function = GetFunctionIsMultisigOwner();
-                return function.CallAsync<bool>(_addr);
+                return await function.CallAsync<bool>(_addr);
             }
             catch (Exception e)
             {
                 throw new CallFailed(e);
             }
         }
-        public Task<BigInteger> M_numOwnersAsyncCall()
+        public async Task<BigInteger> M_numOwnersAsyncCall()
         {
             try
             {
                 var function = GetFunctionM_numOwners();
-                return function.CallAsync<BigInteger>();
+                return await function.CallAsync<BigInteger>();
             }
             catch (Exception e)
             {
                 throw new CallFailed(e);
             }
         }
-        public Task<string> GetMultisigOwnerAsyncCall(BigInteger ownerIndex)
+        public async Task<string> GetMultisigOwnerAsyncCall(BigInteger ownerIndex)
         {
             try
             {
                 var function = GetFunctionGetMultisigOwner();
-                return function.CallAsync<string>(ownerIndex);
+                return await function.CallAsync<string>(ownerIndex);
             }
             catch (Exception e)
             {
                 throw new CallFailed(e);
             }
         }
-        public Task<BigInteger> M_requiredAsyncCall()
+        public async Task<BigInteger> M_requiredAsyncCall()
         {
             try
             {
                 var function = GetFunctionM_required();
-                return function.CallAsync<BigInteger>();
+                return await function.CallAsync<BigInteger>();
             }
             catch (Exception e)
             {
                 throw new CallFailed(e);
             }
         }
-        public Task<bool> ConfirmAsyncCall(byte[] _h)
+        public async Task<bool> ConfirmAsyncCall(byte[] _h)
         {
             try
             {
                 var function = GetFunctionConfirm();
-                return function.CallAsync<bool>(_h);
+                return await function.CallAsync<bool>(_h);
             }
             catch (Exception e)
             {
                 throw new CallFailed(e);
             }
         }
-        public Task<string> OwnerAsyncCall()
+        public async Task<string> OwnerAsyncCall()
         {
             try
             {
                 var function = GetFunctionOwner();
-                return function.CallAsync<string>();
+                return await function.CallAsync<string>();
             }
             catch (Exception e)
             {
                 throw new CallFailed(e);
             }
         }
-        public Task<byte[]> ProposeMigrationAsyncCall(string _callDestination, string newOwner)
+        public async Task<byte[]> ProposeMigrationAsyncCall(string _callDestination, string newOwner)
         {
             try
             {
                 var function = GetFunctionProposeMigration();
-                return function.CallAsync<byte[]>(_callDestination, newOwner);
+                return await function.CallAsync<byte[]>(_callDestination, newOwner);
             }
             catch (Exception e)
             {
                 throw new CallFailed(e);
             }
         }
-        public Task<bool> HasConfirmedAsyncCall(byte[] _operation, string _owner)
+        public async Task<bool> HasConfirmedAsyncCall(byte[] _operation, string _owner)
         {
             try
             {
                 var function = GetFunctionHasConfirmed();
-                return function.CallAsync<bool>(_operation, _owner);
+                return await function.CallAsync<bool>(_operation, _owner);
             }
             catch (Exception e)
             {
                 throw new CallFailed(e);
             }
         }
-        public Task<bool> CancelAsyncCall(byte[] _h)
+        public async Task<bool> CancelAsyncCall(byte[] _h)
         {
             try
             {
                 var function = GetFunctionCancel();
-                return function.CallAsync<bool>(_h);
+                return await function.CallAsync<bool>(_h);
             }
             catch (Exception e)
             {
